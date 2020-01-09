@@ -2,6 +2,7 @@
 import discord
 import time
 import asyncio
+import functions.py
 TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XdDVAQ.hkTME3OmvmqFnlNqcg0HCKZnQSU'
 
 #TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XZuLOw.JBPbCurmDyquUzqNu7Q7FhRTcmw'
