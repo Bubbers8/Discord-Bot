@@ -1,2 +1,3 @@
 # Discord-Bot
 Bot
+Custom discord bot for private HELP | MORE server. Functionality includes assigning Secret Santa, roles, etc...
