@@ -3,13 +3,13 @@ import discord
 import time
 import asyncio
 import functions
+import databaseControl
 #TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XdDVAQ.hkTME3OmvmqFnlNqcg0HCKZnQSU'
 TOKEN = 'NjQ3NTY1Njk1NDI0NjU5NDg3.XgKlsg.hk78CHf_6zL1iLV1p8tzoU4Ll7I'
 #TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XZuLOw.JBPbCurmDyquUzqNu7Q7FhRTcmw'
 client = discord.Client()
 
 messages = joined = 0
-joinedSanta = []
 async def update_stats():
     await client.wait_until_ready()
     global messages, joined
