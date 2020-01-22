@@ -2,10 +2,10 @@
 import discord
 import time
 import asyncio
-import functions
+from help import *
 from databaseControl import *
 #TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XdDVAQ.hkTME3OmvmqFnlNqcg0HCKZnQSU'
-TOKEN = 'NjQ3NTY1Njk1NDI0NjU5NDg3.XiKfkQ.myHUG3GF0yCd7NWVqJcei7GlJzU'
+TOKEN = 'NjQ3NTY1Njk1NDI0NjU5NDg3.XiipNw.Aaot8aWwSHeF1TCe6q24_FB5SGQ'
 #TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XZuLOw.JBPbCurmDyquUzqNu7Q7FhRTcmw'
 client = discord.Client()
 messages = joined = 0
@@ -56,9 +56,9 @@ async def on_message(message):
         if message.content.startswith('!santa Begin'):
             santaList = SelectSantaUsers()
             incrementalList = [x for x in range(len(santaList))]
-            santaIndices = santa(incrementalList)
+            santaIndices = Santa(incrementalList)
             for pair in santaIndices:
-                await get_user(santaList[pair[0]][0]).send(f"You are {santaList[pair[1]][1]}s secret santa!")
+                await client.get_user(santaList[pair[0]][0]).send(f"You are {santaList[pair[1]][1]}s secret santa!")
         if message.content.startswith('!santa Users'):
             santaList = SelectSantaUsers()
             for user in santaList:
