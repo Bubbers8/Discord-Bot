@@ -236,3 +236,10 @@ def SelectChannel(channelId, guildId):
     """
     #Returns single channel tuple from above query
     return executeSelect(sqlite3SelectChannel)
+def SelectNameChannels(name, guildId):
+    sqlite3SelectNameChannels = f"""
+        SELECT * FROM channel
+        WHERE guild_id = {guildId}
+        AND name = \'{name}\'
+        """
+    return executeSelect(sqlite3SelectNameChannels)

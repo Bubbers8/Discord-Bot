@@ -5,13 +5,13 @@ import asyncio
 from help import *
 from databaseControl import *
 #TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XdDVAQ.hkTME3OmvmqFnlNqcg0HCKZnQSU'
-TOKEN = 'NjQ3NTY1Njk1NDI0NjU5NDg3.XiipNw.Aaot8aWwSHeF1TCe6q24_FB5SGQ'
+TOKEN = 'NjQ3NTY1Njk1NDI0NjU5NDg3.XijjIg.9ortcBAroa54MDskReBi2VwSz7s'
 #TOKEN = 'NjMwODE5NTk1Mzc2MTMyMTM5.XZuLOw.JBPbCurmDyquUzqNu7Q7FhRTcmw'
 client = discord.Client()
 messages = joined = 0
 
 
-async def update_stats():
+"""async def update_stats():
     await client.wait_until_ready()
     global messages, joined
 
@@ -25,7 +25,7 @@ async def update_stats():
         except Exception as e:
             print(e)
             await asyncio.sleep(60)
-
+"""
 @client.event
 async def on_message(message):
     global messages
@@ -71,8 +71,20 @@ async def on_message(message):
         #if message.content.startswith('!users'):
         #    msg = f"""# of Members {gid.member_count}"""
         #    await message.channel.send(msg)
+        if message.content.startswith('!scribbletime'):
 
-
+            scribbleChannels = SelectNameChannels("scribbleio",message.guild.id)
+            file = "scribbleio.txt"
+            overwriteF(file)
+            for chan in scribbleChannels:
+                tempChan = client.get_channel(chan[0])
+                msgs = await tempChan.history().flatten()
+                for msg in msgs:
+                    writeF(file,msg.content)
+            toSend = discord.File(file)
+            await message.author.send(file = toSend)
+        if message.content.startswith('!test'):
+            await message.channel.send(file = discord.File("test.png"))
 #@client.event
 async def on_member_join(member):
     InsertUser(User(member.id,member.name,member.guild.id,False))

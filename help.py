@@ -31,3 +31,11 @@ def Santa(list):
             toReturn.append([name,assign[0]])
 
     return toReturn
+def writeF(file, text):
+    f = open(file, "a")
+    f.write(text + ",")
+    f.close()
+def overwriteF(file):
+    f = open(file, "w")
+    f.write('')
+    f.close()
